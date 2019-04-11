@@ -37,32 +37,45 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## 'About Assignment List Project'
+This is Simple CRUD ReactJS aap to demonstrate how to build an MERN (MongoDB, Express, React and Node) - CRUD app.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 'Project Setup'
+ (you can clone the repo and then can follwo below steps in order to make the application running.)
+1. create a new react app - npx create-react-app <your app name>
+2. Install bootstrap - npm install bootstrap (as we are going to use bootstrap for styling)
+3. Setting up ReactRouter - npm install react-router-dom
+4. create the components -
+	- assignment list
+	- edit-assignment
+	- create-assignment
+5. Create basic layout and navigation with bootstrap 
+=====================
+Setting up the backend
+1. create a new DIR named it backend
+2. we need to install following dependencies -
+	- express => Express is a fast and lightweight web framework for Node.js
+	- body-parser => Node.js body parsing middleware.
+	- cors => CORS is a node.js package for providing an Express middleware that can be used to enable CORS     
+                                  with various options. 
+	- mongoose => A Node.js framework which lets us access MongoDB in an object-oriented way.
+ we can install all the with below command - 
+	npm install express body-parser cors mongoose
+4. Finally, we need to make sure to install a global package --- npm install -g nodemon
+Nodemon is a utility that will monitor for any changes in your source and automatically restart your server. 
+5. Start the server by using nodemon  => nodemon server
+====================================
+Installing MongoDB
+-	First makes sure you have monogodb installed on your machine.
+Here you can find the installation guide -https://docs.mongodb.com/manual/administration/install-community/.
+-	Create a data DIR on your system which will be used by mongoDB  
+In your user folder =>  /data/db
+-	To start mongodb use following command – mongod
+-	The next step is to create the MongoDB database instance. Therefore, we’re connecting to the database server by using the MondoDB client on the command line using command - mongo
+-	Once the client is started use the following command to create database – use <databsename>
+-	In order to be able to send HTTP request to our back-end we’re making use of the Axios library. Axios is being installed via the following command:
+ npm install axios
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Once all the setup done you can test the server API on postman.
+=================================================================
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
