@@ -13,7 +13,7 @@ import AssignmentsList from './components/assignment-list.component'
 class App extends Component {
   render() {
     return (
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">            
               <img src={logo} width="50" height="50" alt="react" />            
