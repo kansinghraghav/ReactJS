@@ -27,15 +27,15 @@ class AssignmentsList extends Component {
                 console.log(error);
             })
     }
-    componentDidUpdate() {
-        axios.get('http://localhost:4000/assignments/')
-        .then(response => {
-            this.setState({assignments: response.data});
-        })
-        .catch(function (error) {
-            console.log(error);
-        })   
-    }
+    // componentDidUpdate() {
+    //     axios.get('http://localhost:4000/assignments/')
+    //     .then(response => {
+    //         this.setState({assignments: response.data});
+    //     })
+    //     .catch(function (error) {
+    //         console.log(error);
+    //     })   
+    // }
 
     assignmentList() {
         return this.state.assignments.map(function(currentAssignment, i){
