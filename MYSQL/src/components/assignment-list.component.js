@@ -4,9 +4,9 @@ import axios from 'axios'
 
 const Assignment = props => (
     <tr>
-        <td className={props.assignment.status ? 'completed' : ''}>{props.assignment.description}</td>
-        <td className={props.assignment.status ? 'completed' : ''}>{props.assignment.responsible}</td>
-        <td className={props.assignment.status ? 'completed' : ''}>{props.assignment.priority}</td>
+        <td className={props.assignment.completed ? 'completed' : ''}>{props.assignment.assignment}</td>
+        <td className={props.assignment.completed ? 'completed' : ''}>{props.assignment.responsible}</td>
+        <td className={props.assignment.completed ? 'completed' : ''}>{props.assignment.priority}</td>
         <td>
             <Link to={"/edit/"+props.assignment.id}>Edit</Link>
         </td>
@@ -18,6 +18,8 @@ class AssignmentsList extends Component {
         super(props);
         this.state = {assignments: []};
     }
+
+    
      componentDidMount() {
         axios.get('http://localhost:8081/assignments/assignments')
             .then(response => {
@@ -47,12 +49,12 @@ class AssignmentsList extends Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <h3>Assignment List</h3>
                 <table className="table table-striped" style={{ marginTop: 20 }} >
                     <thead>
                         <tr>
-                            <th>Description</th>
+                            <th>Assignment</th>
                             <th>Responsible</th>
                             <th>Priority</th>
                             <th>Action</th>
@@ -62,7 +64,7 @@ class AssignmentsList extends Component {
                         { this.assignmentList() }
                     </tbody>
                 </table>
-            </div>
+            </React.Fragment>
         )
     }
 }

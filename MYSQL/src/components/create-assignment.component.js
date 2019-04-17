@@ -12,16 +12,16 @@ class CreateAssignment extends Component {
         this.onSubmit = this.onSubmit.bind(this)
 
         this.state = {
-            description: '',
+            assignment: '',
             responsible: '',
             priority: '',
-            Status: false
+            Completed: false
         }
     }
 
     onChangeAssignmentDescription(e) {
         this.setState({
-            description: e.target.value
+            assignment: e.target.value
         });
     }
 
@@ -41,25 +41,25 @@ class CreateAssignment extends Component {
         e.preventDefault();
         
         console.log(`Form submitted:`);
-        console.log(`Assignment Description: ${this.state.description}`);
+        console.log(`Assignment task: ${this.state.assignment}`);
         console.log(`Assignment Responsible: ${this.state.responsible}`);
         console.log(`Assignment Priority: ${this.state.priority}`);
         
         const newAssignments = {
-            description: this.state.description,
+            assignment: this.state.assignment,
             responsible: this.state.responsible,
             priority: this.state.priority,
-            status: this.state.Status
+            completed: this.state.Completed
         };
 		
 		axios.post('http://localhost:8081/assignments/assignments', newAssignments)
             .then(res => console.log(res.data));
 
         this.setState({
-            description: '',
+            assignment: '',
             responsible: '',
             priority: '',
-            Status: false
+            Completed: false
         })
         this.props.history.push('/');
     }
@@ -70,10 +70,10 @@ class CreateAssignment extends Component {
                 <h3>Create New Assignment</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 
-                        <label>Description: </label>
+                        <label>Assignment: </label>
                         <input  type="text"
                                 className="form-control"
-                                value={this.state.description}
+                                value={this.state.assignment}
                                 onChange={this.onChangeAssignmentDescription}
                                 />
                     </div>

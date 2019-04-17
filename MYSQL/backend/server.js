@@ -66,14 +66,15 @@ app.post("/assignments/assignments",function(request,response){
   app.post("/assignments/assignments/:id",function(request,response){
 
     var id = request.params.id;
-    var description = request.body.description;
+    var assignment = request.body.assignment;
     var responsible = request.body.responsible;
     var priority = request.body.priority;
-    var status = request.body.status;
+    var completed = request.body.completed;
     
-    console.log('request data', request.body);
+    // console.log('request data', request.body);
 
-  connection.query("UPDATE assignments SET description = ?, responsible = ?, priority = ?, status = ?, WHERE id = ?", [ description, responsible, priority, status, id],
+  connection.query("UPDATE assignments SET assignment = ?, responsible = ?, priority = ?, completed = ? WHERE id = ?", 
+  [ assignment, responsible, priority, completed, id],
      function(err,fields,rows){
     if(err)
      return console.error(err);

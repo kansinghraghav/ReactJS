@@ -15,10 +15,10 @@ class EditAssignment extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            description: '',
+            assignment: '',
             responsible: '',
             priority: '',
-            status: false
+            completed: false
         }
     }
 
@@ -27,10 +27,10 @@ class EditAssignment extends Component {
             .then(response => {
                 console.log('in edit',response.data);
                 this.setState({
-                    description: response.data.description,
+                    assignment: response.data.assignment,
                     responsible: response.data.responsible,
                     priority: response.data.priority,
-                    status: response.data.status
+                    completed: response.data.completed
                 })   
             })
             .catch(function (error) {
@@ -40,7 +40,7 @@ class EditAssignment extends Component {
 
     onChangeAssignmentDescription(e) {
         this.setState({
-            description: e.target.value
+            assignment: e.target.value
         });
     }
 
@@ -58,17 +58,17 @@ class EditAssignment extends Component {
 
     onChangeAssignmentStatus(e) {
         this.setState({
-            status: !this.state.status
+            completed: !this.state.completed
         });
     }
 
     onSubmit(e) {
         e.preventDefault();
         const obj = {
-            description: this.state.description,
+            assignment: this.state.assignment,
             responsible: this.state.responsible,
             priority: this.state.priority,
-            status: this.state.status
+            completed: this.state.completed
         };
         console.log(obj);
         axios.post('http://localhost:8081/assignments/assignments/'+this.props.match.params.id, obj)
@@ -83,10 +83,10 @@ class EditAssignment extends Component {
                 <h3 align="center">Update Assignment</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group"> 
-                        <label>Description: </label>
+                        <label>Assignment: </label>
                         <input  type="text"
                                 className="form-control"
-                                value={this.state.description}
+                                value={this.state.assignment}
                                 onChange={this.onChangeAssignmentDescription}
                                 />
                     </div>
@@ -140,8 +140,8 @@ class EditAssignment extends Component {
                                 type="checkbox"
                                 name="statusCheckbox"
                                 onChange={this.onChangeAssignmentStatus}
-                                checked={this.state.status}
-                                value={this.state.status}
+                                checked={this.state.completed}
+                                value={this.state.completed}
                                 />
                         <label className="form-check-label" htmlFor="statusCheckbox">
                             Completed
